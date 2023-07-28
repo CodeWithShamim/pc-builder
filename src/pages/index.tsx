@@ -1,9 +1,18 @@
-const index = () => {
+import RootLayout from "@/components/layouts/RootLayout";
+import { Button } from "antd";
+import { NextPage } from "next";
+
+const Home = () => {
   return (
     <div>
-      <h1>Home page</h1>
+      <h1 className="text-4xl">Home page</h1>
+      <Button type="primary">Button</Button>
     </div>
   );
 };
 
-export default index;
+Home.getLayout = function getLayout(page: React.ReactNode) {
+  return <RootLayout>{page}</RootLayout>;
+};
+
+export default Home;
