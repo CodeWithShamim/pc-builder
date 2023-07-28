@@ -1,8 +1,9 @@
 import RootLayout from "@/components/layouts/RootLayout";
 import { Button } from "antd";
-import { NextPage } from "next";
+import { ReactElement } from "react";
+import { NextPageWithLayout } from "./_app";
 
-const Home = () => {
+const Home: NextPageWithLayout = () => {
   return (
     <div>
       <h1 className="text-4xl">Home page</h1>
@@ -11,7 +12,7 @@ const Home = () => {
   );
 };
 
-Home.getLayout = function getLayout(page: React.ReactNode) {
+Home.getLayout = function getLayout(page: ReactElement) {
   return <RootLayout>{page}</RootLayout>;
 };
 
