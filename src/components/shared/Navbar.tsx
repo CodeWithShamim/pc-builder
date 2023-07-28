@@ -117,7 +117,7 @@ const Navbar = () => {
       </div>
 
       <Header className="px-4 md:px-24 lg:px-32 text-white flex items-center justify-between">
-        <div className="md:text-xl">
+        <div className="md:text-xl hidden md:block">
           <Link href="/" className="text-primary font-bold">
             PC🐱‍🏍BUILDER
           </Link>
