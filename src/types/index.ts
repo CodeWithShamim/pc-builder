@@ -26,3 +26,9 @@ export interface IProduct {
   averageRating?: number;
   reviews?: Review[];
 }
+
+export interface IProductResponse {
+  success: boolean;
+  message: string;
+  data: IProduct;
+}
