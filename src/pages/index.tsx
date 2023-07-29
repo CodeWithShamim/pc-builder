@@ -3,6 +3,7 @@ import { ReactElement } from "react";
 import { NextPageWithLayout } from "./_app";
 import ProductCard from "@/components/ProductCard";
 import { IProduct } from "@/types";
+import Banner from "@/components/Banner";
 
 interface IProps {
   products: IProduct[];
@@ -14,14 +15,18 @@ const Home: NextPageWithLayout<IProps> = ({ products }) => {
   }
 
   return (
-    <div>
+    <div className="w-full">
+      {/* hero section  */}
+      <div>
+        <Banner />
+      </div>
+
+      {/* products  */}
       <h1 className="text-lg md:text-xl lg:text-2xl text-center">
         Featured Products
       </h1>
-
-      {/* products  */}
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center py-6">
-        {products?.map((product: IProduct) => (
+        {products?.slice(0, 8)?.map((product: IProduct) => (
           <ProductCard key={product._id} product={product} />
         ))}
       </div>
