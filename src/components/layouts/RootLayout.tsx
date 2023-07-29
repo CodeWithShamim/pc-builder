@@ -9,7 +9,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <>
       <Navbar />
-      <div className="h-screen max-w-6xl mx-auto px-3">{children}</div>
+      <div className="max-w-5xl lg:max-w-6xl mx-auto px-6">{children}</div>
       <Footer />
     </>
   );
