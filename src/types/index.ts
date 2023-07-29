@@ -12,6 +12,7 @@ export interface IProduct {
   price: number;
   rating: number;
   description?: string;
+  type?: string;
   keyFeatures?: {
     brand?: string;
     model?: string;
