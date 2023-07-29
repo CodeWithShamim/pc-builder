@@ -29,7 +29,7 @@ const Banner = () => {
   return (
     <div className=" flex flex-col-reverse lg:flex-row-reverse justify-between items-center gap-4 py-4">
       <div className="w-full lg:w-1/4 flex flex-row lg:flex-col gap-2 items-center justify-center">
-        <div>
+        <div className="lg:h-[221px]">
           <Image
             src="/banner/banner2.jpg"
             alt="banner side image"
@@ -38,10 +38,11 @@ const Banner = () => {
             quality={100}
             layout="responsive"
             objectFit="cover"
+            className="h-full"
             priority
           />
         </div>
-        <div>
+        <div className="lg:h-[221px]">
           <Image
             src="/banner/banner1.png"
             alt="banner side image"
@@ -50,6 +51,7 @@ const Banner = () => {
             quality={100}
             layout="responsive"
             objectFit="cover"
+            className="h-full"
             priority
           />
         </div>

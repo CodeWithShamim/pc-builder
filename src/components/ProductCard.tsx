@@ -20,14 +20,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <div className="w-full mx-auto flex justify-center">
-      <Card className="w-full shadow" loading={loading} hoverable>
-        {rating > 4.5 && (
-          <div className="top-0 right-0 bg-primary text-white w-24 text-center absolute rounded-sm">
-            50% off
-          </div>
-        )}
+      <Link href={`/product-details/${_id}`} className="text-white">
+        <Card className="w-full shadow" loading={loading} hoverable>
+          {rating > 4.5 && (
+            <div className="top-0 right-0 bg-primary text-white w-24 text-center absolute rounded-sm">
+              50% off
+            </div>
+          )}
 
-        <Link href={`/product-details/${_id}`}>
           <Image
             src={image}
             alt={productName}
@@ -37,32 +37,39 @@ const ProductCard = ({ product }: ProductCardProps) => {
             priority
             className="mx-auto pb-3 w-full transition-all hover:scale-[110%] md:hover:scale-[120%] lg:hover:scale-[130%]"
           />
-        </Link>
 
-        <Meta
-          title={productName}
-          description={<div className="pb-2">{category}</div>}
-        />
-        <Meta
-          title={
-            <span className="md:text-lg font-bold text-primary">{price}$</span>
-          }
-          description={
-            <span
-              className={`font-bold text-red-500 ${
-                status === "Out of Stock" && "line-through"
-              }`}
-            >
-              {status}
-            </span>
-          }
-        />
+          <Meta
+            title={productName}
+            description={<div className="pb-2">{category}</div>}
+          />
+          <Meta
+            title={
+              <span className="md:text-lg font-bold text-primary">
+                {price}$
+              </span>
+            }
+            description={
+              <span
+                className={`font-bold text-red-500 ${
+                  status === "Out of Stock" && "line-through"
+                }`}
+              >
+                {status}
+              </span>
+            }
+          />
 
-        <div className="pt-1">
-          <Rate disabled defaultValue={rating} allowHalf className="text-xs" />
-          <span style={{ marginLeft: 8 }}>{rating}</span>
-        </div>
-      </Card>
+          <div className="pt-1">
+            <Rate
+              disabled
+              defaultValue={rating}
+              allowHalf
+              className="text-xs"
+            />
+            <span style={{ marginLeft: 8 }}>{rating}</span>
+          </div>
+        </Card>
+      </Link>
     </div>
   );
 };
