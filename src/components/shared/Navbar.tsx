@@ -77,7 +77,7 @@ const items: MenuProps["items"] = [
     key: "6",
     label: (
       <div className="hover:bg-primary transition-all rounded p-2 w-full">
-        <Link href="/products/monitors" className="text-black hover:text-white">
+        <Link href="/products/monitor" className="text-black hover:text-white">
           Monitor
         </Link>
       </div>

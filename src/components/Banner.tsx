@@ -38,7 +38,7 @@ const Banner = () => {
             quality={100}
             layout="responsive"
             objectFit="cover"
-            className="h-full"
+            className="h-full rounded"
             priority
           />
         </div>
@@ -51,14 +51,14 @@ const Banner = () => {
             quality={100}
             layout="responsive"
             objectFit="cover"
-            className="h-full"
+            className="h-full rounded"
             priority
           />
         </div>
       </div>
 
       <div className="w-full lg:w-3/4">
-        <Carousel autoplay>
+        <Carousel autoplay waitForAnimate={true}>
           {bannerItems.map((item) => (
             <div key={item.id} className="bg-red-500">
               <Image
