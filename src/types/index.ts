@@ -30,5 +30,6 @@ export interface IProduct {
 export interface IProductResponse {
   success: boolean;
   message: string;
-  data: IProduct;
+  error?: string;
+  data?: IProduct;
 }
