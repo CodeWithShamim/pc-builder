@@ -19,37 +19,37 @@ const featuredCategories = [
     id: 1,
     icon: <ReconciliationOutlined />,
     name: "CPU / Processor",
-    url: "cpu",
+    url: "/category/cpu",
   },
   {
     id: 2,
     icon: <PartitionOutlined />,
     name: "Motherboard",
-    url: "motherboard",
+    url: "/category/motherboard",
   },
   {
     id: 3,
     icon: <CreditCardOutlined />,
     name: "RAM",
-    url: "ram",
+    url: "/category/ram",
   },
   {
     id: 4,
     icon: <DesktopOutlined />,
     name: "Monitor",
-    url: "monitor",
+    url: "/category/monitor",
   },
   {
     id: 5,
     icon: <ApartmentOutlined />,
     name: "Power Supply",
-    url: "power-supply",
+    url: "/category/power-supply",
   },
   {
     id: 6,
     icon: <NodeCollapseOutlined />,
     name: "Storage Device",
-    url: "storage-device",
+    url: "/category/storage-device",
   },
 ];
 

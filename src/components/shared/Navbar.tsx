@@ -18,7 +18,7 @@ const items: MenuProps["items"] = [
     key: "1",
     label: (
       <div className="hover:bg-primary transition-all rounded p-2 w-full">
-        <Link href="/products/cpu" className="text-black hover:text-white">
+        <Link href="/category/cpu" className="text-black hover:text-white">
           CPU / Processor
         </Link>
       </div>
@@ -29,7 +29,7 @@ const items: MenuProps["items"] = [
     label: (
       <div className="hover:bg-primary transition-all rounded p-2 w-full">
         <Link
-          href="/products/motherboard"
+          href="/category/motherboard"
           className="text-black hover:text-white"
         >
           Motherboard
@@ -41,7 +41,7 @@ const items: MenuProps["items"] = [
     key: "3",
     label: (
       <div className="hover:bg-primary transition-all rounded p-2 w-full">
-        <Link href="/products/ram" className="text-black hover:text-white">
+        <Link href="/category/ram" className="text-black hover:text-white">
           RAM
         </Link>
       </div>
@@ -52,7 +52,7 @@ const items: MenuProps["items"] = [
     label: (
       <div className="hover:bg-primary transition-all rounded p-2 w-full">
         <Link
-          href="/products/power-supply"
+          href="/category/power-supply"
           className="text-black hover:text-white"
         >
           Power Supply Unit
@@ -65,7 +65,7 @@ const items: MenuProps["items"] = [
     label: (
       <div className="hover:bg-primary transition-all rounded p-2 w-full">
         <Link
-          href="/products/storage-device"
+          href="/category/storage-device"
           className="text-black hover:text-white"
         >
           Storage Device
@@ -77,7 +77,7 @@ const items: MenuProps["items"] = [
     key: "6",
     label: (
       <div className="hover:bg-primary transition-all rounded p-2 w-full">
-        <Link href="/products/monitor" className="text-black hover:text-white">
+        <Link href="/category/monitor" className="text-black hover:text-white">
           Monitor
         </Link>
       </div>
@@ -87,7 +87,7 @@ const items: MenuProps["items"] = [
     key: "7",
     label: (
       <div className="hover:bg-primary transition-all rounded p-2 w-full">
-        <Link href="/products/others" className="text-black hover:text-white">
+        <Link href="/category/others" className="text-black hover:text-white">
           Others
         </Link>
       </div>
