@@ -11,6 +11,8 @@ import {
 } from "@ant-design/icons";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 
 const { Header } = Layout;
 const items: MenuProps["items"] = [];
@@ -27,6 +29,7 @@ const categoryItems = [
 
 const Navbar = () => {
   const router = useRouter();
+  const { data: session } = useSession();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleNavigate = (url: string) => {
     router.push(url);
@@ -85,9 +88,30 @@ const Navbar = () => {
           </Space>
         </Dropdown>
 
-        <Link href="/tool/pc-builder">
-          <Button type="primary">PC Builder</Button>
-        </Link>
+        <div className="flex gap-2 items-center">
+          <Link href="/tool/pc-builder">
+            <Button type="primary" className="text-xs md:text-sm">
+              PC Builder
+            </Button>
+          </Link>
+
+          {/* login / logout button  */}
+          {session?.user?.name ? (
+            <Button
+              onClick={() => signOut()}
+              type="primary"
+              className="bg-primary text-xs md:text-sm"
+            >
+              Logout
+            </Button>
+          ) : (
+            <Link href="/login">
+              <Button type="primary" className="bg-primary text-xs md:text-sm">
+                Signin
+              </Button>
+            </Link>
+          )}
+        </div>
       </Header>
     </div>
   );
