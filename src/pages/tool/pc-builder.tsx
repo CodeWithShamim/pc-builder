@@ -80,14 +80,13 @@ export default PCBuilder;
 export const getServerSideProps = async (context: {
   query: { productType: string };
 }) => {
-  // for initial build
-  if (typeof window === "undefined") {
-    return {
-      props: {
-        products: [],
-      },
-    };
-  }
+  // if (typeof window === "undefined") {
+  //   return {
+  //     props: {
+  //       products: [],
+  //     },
+  //   };
+  // }
 
   const { query } = context;
 

@@ -142,10 +142,9 @@ ProductDetails.getLayout = function getLayout(page: ReactElement) {
 export default ProductDetails;
 
 export async function getStaticPaths() {
-  // for initial build
-  if (typeof window === "undefined") {
-    return { paths: [], fallback: "blocking" };
-  }
+  // if (typeof window === "undefined") {
+  //   return { paths: [], fallback: "blocking" };
+  // }
 
   const res = await fetch(`${process.env.NEXTAUTH_URL}/api/product`);
   const products = await res.json();
@@ -162,14 +161,13 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: {
   params: { productId: string };
 }) {
-  // for initial build
-  if (typeof window === "undefined") {
-    return {
-      props: {
-        product: [],
-      },
-    };
-  }
+  // if (typeof window === "undefined") {
+  //   return {
+  //     props: {
+  //       product: [],
+  //     },
+  //   };
+  // }
 
   const { params } = context;
 

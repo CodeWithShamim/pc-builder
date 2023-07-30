@@ -112,14 +112,13 @@ export default Home;
 
 // SSG
 export async function getStaticProps() {
-  // for initial build
-  if (typeof window === "undefined") {
-    return {
-      props: {
-        products: [],
-      },
-    };
-  }
+  // if (typeof window === "undefined") {
+  //   return {
+  //     props: {
+  //       products: [],
+  //     },
+  //   };
+  // }
 
   const res = await fetch(`${process.env.NEXTAUTH_URL}/api/product`);
   const data = await res.json();
