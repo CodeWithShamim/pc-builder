@@ -12,10 +12,13 @@ const CategoryProductPage: NextPageWithLayout<IProps> = ({ products }) => {
   return (
     <div className="py-6">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center py-6">
-        {products?.slice(0, 8)?.map((product: IProduct) => (
+        {products?.map((product: IProduct) => (
           <ProductCard key={product._id} product={product} />
         ))}
       </div>
+      {products?.length < 1 && (
+        <h2 className="text-center text-primary">Products not found! 🤦‍♂️</h2>
+      )}
     </div>
   );
 };

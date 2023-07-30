@@ -20,14 +20,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <div className="w-full mx-auto flex justify-center">
-      <Link href={`/product-details/${_id}`} className="text-white">
-        <Card className="w-full shadow" loading={loading} hoverable>
-          {rating > 4.5 && (
-            <div className="top-0 right-0 bg-primary text-white w-24 text-center absolute rounded-sm">
-              50% off
-            </div>
-          )}
-
+      <Card className="w-full shadow" loading={loading} hoverable>
+        {rating > 4.5 && (
+          <div className="top-0 right-0 bg-primary text-white w-24 text-center absolute rounded-sm">
+            50% off
+          </div>
+        )}
+        <Link href={`/product-details/${_id}`} className="text-white">
           <Image
             src={image}
             alt={productName}
@@ -70,8 +69,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
             />
             <span style={{ marginLeft: 8 }}>{rating}</span>
           </div>
-        </Card>
-      </Link>
+        </Link>
+      </Card>
     </div>
   );
 };

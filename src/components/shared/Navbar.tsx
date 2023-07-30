@@ -1,4 +1,4 @@
-import { Menu, Layout, Button, MenuProps, Dropdown, Space } from "antd";
+import { Layout, Button, MenuProps, Dropdown, Space } from "antd";
 import Link from "next/link";
 import React from "react";
 import {
@@ -7,92 +7,49 @@ import {
   AmazonOutlined,
   YoutubeOutlined,
   SkypeOutlined,
-  SmileOutlined,
   DownOutlined,
 } from "@ant-design/icons";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const { Header } = Layout;
+const items: MenuProps["items"] = [];
 
-const items: MenuProps["items"] = [
-  {
-    key: "1",
-    label: (
-      <div className="hover:bg-primary transition-all rounded p-2 w-full">
-        <Link href="/category/cpu" className="text-black hover:text-white">
-          CPU / Processor
-        </Link>
-      </div>
-    ),
-  },
-  {
-    key: "2",
-    label: (
-      <div className="hover:bg-primary transition-all rounded p-2 w-full">
-        <Link
-          href="/category/motherboard"
-          className="text-black hover:text-white"
-        >
-          Motherboard
-        </Link>
-      </div>
-    ),
-  },
-  {
-    key: "3",
-    label: (
-      <div className="hover:bg-primary transition-all rounded p-2 w-full">
-        <Link href="/category/ram" className="text-black hover:text-white">
-          RAM
-        </Link>
-      </div>
-    ),
-  },
-  {
-    key: "4",
-    label: (
-      <div className="hover:bg-primary transition-all rounded p-2 w-full">
-        <Link
-          href="/category/power-supply"
-          className="text-black hover:text-white"
-        >
-          Power Supply Unit
-        </Link>
-      </div>
-    ),
-  },
-  {
-    key: "5",
-    label: (
-      <div className="hover:bg-primary transition-all rounded p-2 w-full">
-        <Link href="/category/storage" className="text-black hover:text-white">
-          Storage Device
-        </Link>
-      </div>
-    ),
-  },
-  {
-    key: "6",
-    label: (
-      <div className="hover:bg-primary transition-all rounded p-2 w-full">
-        <Link href="/category/monitor" className="text-black hover:text-white">
-          Monitor
-        </Link>
-      </div>
-    ),
-  },
-  {
-    key: "7",
-    label: (
-      <div className="hover:bg-primary transition-all rounded p-2 w-full">
-        <Link href="/category/others" className="text-black hover:text-white">
-          Others
-        </Link>
-      </div>
-    ),
-  },
+const categoryItems = [
+  { name: "CPU/Processor", url: "/cpu" },
+  { name: "Motherboard", url: "/motherboard" },
+  { name: "RAM", url: "/ram" },
+  { name: "Monitor", url: "/monitor" },
+  { name: "Power Supply Unit", url: "/power-supply" },
+  { name: "Storage Device", url: "/storage" },
+  { name: "Others", url: "/others" },
 ];
 
 const Navbar = () => {
+  const router = useRouter();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleNavigate = (url: string) => {
+    router.push(url);
+  };
+
+  useEffect(() => {
+    if (!items.length) {
+      categoryItems.map((item, index) =>
+        items.push({
+          key: String(index + 1),
+          label: (
+            <div
+              onClick={() => handleNavigate(`/category/${item.url}`)}
+              className="py-2 px-6 w-[150px] text-black hover:text-white hover:bg-primary transition-all rounded "
+            >
+              {item.name}
+            </div>
+          ),
+        })
+      );
+    }
+  }, [handleNavigate]);
+
   return (
     <div>
       <div className="hidden md:h-4 md:flex w-full bg-primary justify-end items-center gap-2 py-1">
