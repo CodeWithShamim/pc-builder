@@ -59,7 +59,7 @@ interface IProps {
 
 const Home: NextPageWithLayout<IProps> = ({ products }) => {
   if (!products.length) {
-    return <h1>Loading...</h1>;
+    return <h1 className="h-screen">Loading...</h1>;
   }
 
   return (
