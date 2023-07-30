@@ -30,11 +30,11 @@ CategoryProductPage.getLayout = function getLayout(page: ReactElement) {
 export default CategoryProductPage;
 
 export async function getStaticPaths() {
-  const res = await fetch(`http://localhost:3000/api/product`);
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/product`);
   const products = await res.json();
   const paths = products?.data?.map((product: IProduct) => ({
     params: {
-      categoryType: product._id,
+      categoryType: product.type,
     },
   }));
 
@@ -48,7 +48,7 @@ export async function getStaticProps(context: {
   const { params } = context;
 
   const res = await fetch(
-    `http://localhost:3000/api/product?type=${params.categoryType}`
+    `${process.env.NEXTAUTH_URL}/api/product?type=${params.categoryType}`
   );
   const data = await res.json();
 

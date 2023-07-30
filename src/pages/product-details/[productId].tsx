@@ -142,7 +142,7 @@ ProductDetails.getLayout = function getLayout(page: ReactElement) {
 export default ProductDetails;
 
 export async function getStaticPaths() {
-  const res = await fetch(`http://localhost:3000/api/product`);
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/product`);
   const products = await res.json();
   const paths = products?.data?.map((product: IProduct) => ({
     params: {
@@ -160,7 +160,7 @@ export async function getStaticProps(context: {
   const { params } = context;
 
   const res = await fetch(
-    `http://localhost:3000/api/product?id=${params.productId}`
+    `${process.env.NEXTAUTH_URL}/api/product?id=${params.productId}`
   );
   const data = await res.json();
 

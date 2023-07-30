@@ -112,7 +112,7 @@ export default Home;
 
 // SSG
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/product");
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/product`);
   const data = await res.json();
 
   return {
