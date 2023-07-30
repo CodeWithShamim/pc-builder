@@ -25,6 +25,20 @@ export default async function run(
       .db("pc-builder")
       .collection("products");
 
+    // get product by type
+    const type = req.query?.type;
+    if (req.method === "GET" && type) {
+      const product = await productsCollection.find({ type }).toArray();
+
+      res.status(200).json({
+        success: true,
+        message: "Products retrieved successfully!",
+        data: product,
+      });
+
+      return;
+    }
+
     // get single products
     const id = req.query?.id;
     if (req.method === "GET" && id) {
