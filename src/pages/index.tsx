@@ -49,7 +49,7 @@ const featuredCategories = [
     id: 6,
     icon: <NodeCollapseOutlined />,
     name: "Storage Device",
-    url: "/category/storage-device",
+    url: "/category/storage",
   },
 ];
 
@@ -63,7 +63,7 @@ const Home: NextPageWithLayout<IProps> = ({ products }) => {
   }
 
   return (
-    <div className="w-full py-6">
+    <div className="w-full">
       {/* hero section  */}
       <div>
         <Banner />

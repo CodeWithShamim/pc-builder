@@ -25,7 +25,7 @@ const ProductDetails: NextPageWithLayout<IProps> = ({ product }) => {
   } = product;
 
   return (
-    <div className="py-10">
+    <div>
       <div className="h-full xl:h-screen flex flex-col lg:flex-row items-center lg:items-start gap-8 border-b border-gray-300">
         <div className="w-full  lg:w-[50%] mx-auto">
           <Image

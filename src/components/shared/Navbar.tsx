@@ -64,10 +64,7 @@ const items: MenuProps["items"] = [
     key: "5",
     label: (
       <div className="hover:bg-primary transition-all rounded p-2 w-full">
-        <Link
-          href="/category/storage-device"
-          className="text-black hover:text-white"
-        >
+        <Link href="/category/storage" className="text-black hover:text-white">
           Storage Device
         </Link>
       </div>
