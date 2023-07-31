@@ -7,6 +7,8 @@ import { NextPageWithLayout } from "../_app";
 import { IProduct } from "@/types";
 import { useRouter } from "next/router";
 import ProductCard from "@/components/ProductCard";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { addBuilderProduct } from "@/redux/features/products/productSlice";
 
 interface IProps {
   products: IProduct[];
@@ -14,9 +16,15 @@ interface IProps {
 
 const PCBuilder: NextPageWithLayout<IProps> = ({ products }) => {
   const router = useRouter();
+  const { builderProducts } = useAppSelector((state) => state.product);
+  const dispatch = useAppDispatch();
+
   const handleProductChoose = (product: IProduct) => {
+    dispatch(addBuilderProduct(product));
     router.push("/tool/pc-builder");
   };
+
+  console.log(builderProducts, "builderProducts");
 
   return (
     <div className="md:px-16">
@@ -41,7 +49,7 @@ const PCBuilder: NextPageWithLayout<IProps> = ({ products }) => {
             <div className="w-28">
               <Link href={`/tool/pc-builder?productType=cpu`}>
                 <Button type="primary" className="w-full">
-                  Add
+                  Select
                 </Button>
               </Link>
             </div>
@@ -60,7 +68,7 @@ const PCBuilder: NextPageWithLayout<IProps> = ({ products }) => {
                 onClick={() => handleProductChoose(product)}
                 type="primary"
               >
-                Choose
+                Add To Builder
               </Button>
             </div>
           ))}

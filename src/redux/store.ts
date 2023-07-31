@@ -4,7 +4,7 @@ import productReducer from "./features/products/productSlice";
 
 const store = configureStore({
   reducer: {
-    book: productReducer,
+    product: productReducer,
     [api.reducerPath]: api.reducer,
   },
   middleware: (getDefaultMiddleware) =>
