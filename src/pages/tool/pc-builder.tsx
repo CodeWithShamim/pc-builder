@@ -73,7 +73,7 @@ const PCBuilder: NextPageWithLayout<IProps> = ({ products }) => {
 
   const handleCompleteBuilder = () => {
     toast.success("PC Build successfully.");
-    dispatch(removeBuilderProduct());
+    // dispatch(removeBuilderProduct());
   };
 
   useEffect(() => {
@@ -103,14 +103,14 @@ const PCBuilder: NextPageWithLayout<IProps> = ({ products }) => {
             <>
               <div
                 key={requiredProduct.id}
-                className="flex justify-between items-center gap-2"
+                className="flex justify-between items-center gap-2 "
               >
                 <div className="flex items-center gap-2">
                   <div
-                    className={`${
-                      requiredProduct?.product?.length > 0 ? "hidden" : "block"
-                    } md:block`}
+                    className={`${requiredProduct?.product?.length > 0 ? "hidden" : "block"
+                      } md:block`}
                   >
+
                     <Image
                       src={requiredProduct.image}
                       alt="cpu image"
@@ -120,7 +120,7 @@ const PCBuilder: NextPageWithLayout<IProps> = ({ products }) => {
                       className="w-12 h-12"
                     />
                     <div className="flex flex-col md:flex-row justify-center items-center">
-                      <h3 className="text-sm md:text-xl font-semibold">
+                      <h3 className="text-sm md:text-xl font-semibold ">
                         {requiredProduct.name}
                       </h3>
                       <span className="text-xs">*** Required?</span>
@@ -178,13 +178,13 @@ const PCBuilder: NextPageWithLayout<IProps> = ({ products }) => {
                   </Link>
                 </div>
               </div>
-              <hr color="text-secondary" />
+              {/* <hr color="text-secondary" /> */}
             </>
           ))}
 
           <div className="flex justify-center my-6">
             <Button
-              disabled={builderProducts.length !== 6}
+              disabled={builderProducts.length < 6}
               onClick={handleCompleteBuilder}
               type="primary"
               className="bg-primary"

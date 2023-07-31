@@ -65,9 +65,7 @@ const Home: NextPageWithLayout<IProps> = ({ products }) => {
   return (
     <div className="w-full">
       {/* hero section  */}
-      <div>
-        <Banner />
-      </div>
+      <Banner />
 
       {/* products  */}
       <h1 className="text-lg md:text-xl lg:text-2xl text-center uppercase pt-6 md:pt-10">

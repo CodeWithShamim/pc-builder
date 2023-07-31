@@ -74,14 +74,30 @@ const Navbar = () => {
       </div>
 
       <Header className="px-4 md:px-24 lg:px-32 text-white flex items-center justify-between">
-        <div className="md:text-xl hidden md:block">
+        {/* for mobile */}
+        <div className="flex items-center justify-center md:hidden">
+          <Dropdown destroyPopupOnHide autoFocus={true} dropdownRender={() =>
+            <div
+              className="py-4 px-6 w-[60%] shadow-lg bg-white text-black transition-all rounded">
+              <Link href="/tool/pc-builder">
+                <Button type="primary" size="small" className="text-xs md:text-sm">
+                  PC Builder
+                </Button>
+              </Link>
+            </div>
+          } placement="bottomLeft" >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </Dropdown >
+        </div >
+
+        <div className="md:text-xl">
           <Link href="/" className="text-primary font-bold">
             PC🐱‍🏍BUILDER
           </Link>
         </div>
 
-        {/* dropdoan list  */}
-        <Dropdown menu={{ items }}>
+        {/* dropdoan list  for tablet & desktop*/}
+        <Dropdown menu={{ items }} className="hidden md:flex">
           <Space className="font-medium hover:cursor-pointer">
             Categories
             <DownOutlined />
@@ -89,7 +105,8 @@ const Navbar = () => {
         </Dropdown>
 
         <div className="flex gap-2 items-center">
-          <Link href="/tool/pc-builder">
+          {/* for tablet & desktop */}
+          <Link href="/tool/pc-builder" className="hidden md:block">
             <Button type="primary" className="text-xs md:text-sm">
               PC Builder
             </Button>
@@ -111,9 +128,11 @@ const Navbar = () => {
               </Button>
             </Link>
           )}
+
+
         </div>
-      </Header>
-    </div>
+      </Header >
+    </div >
   );
 };
 
