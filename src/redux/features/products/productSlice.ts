@@ -3,24 +3,10 @@ import { IProduct } from "../../../types";
 import { categoryTypes } from "@/utils/products";
 
 interface IProductState {
-  builderProducts: {
-    cpu: IProduct[];
-    motherboard: IProduct[];
-    monitor: IProduct[];
-    ram: IProduct[];
-    powerSupply: IProduct[];
-    storage: IProduct[];
-  };
+  builderProducts: IProduct[];
 }
 const initialState: IProductState = {
-  builderProducts: {
-    cpu: [],
-    motherboard: [],
-    monitor: [],
-    ram: [],
-    powerSupply: [],
-    storage: [],
-  },
+  builderProducts: [],
 };
 
 const prodcutSlice = createSlice({
@@ -30,16 +16,19 @@ const prodcutSlice = createSlice({
     addBuilderProduct: (state, action: PayloadAction<IProduct>) => {
       const product = action.payload;
 
-      const isExist = state.builderProducts[product.type as "cpu"]?.filter(
+      const isExist = state.builderProducts.filter(
         (bp: IProduct) => bp._id === product._id
       );
 
-      if (!isExist.length) {
-        state.builderProducts[product.type as "cpu"].push(product);
+      if (!isExist?.length) {
+        state.builderProducts.push(product);
       }
+    },
+    removeBuilderProduct: (state) => {
+      state.builderProducts = [];
     },
   },
 });
 
-export const { addBuilderProduct } = prodcutSlice.actions;
+export const { addBuilderProduct, removeBuilderProduct } = prodcutSlice.actions;
 export default prodcutSlice.reducer;
